@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class FoodOrderingSystem implements ActionListener, ItemListener {
@@ -34,69 +35,102 @@ public class FoodOrderingSystem implements ActionListener, ItemListener {
 
     public FoodOrderingSystem() {
         frame = new JFrame("Food Ordering System");
+
         frame.setSize(760, 720);
+        frame.setBackground(Color.CYAN);
+        frame.getContentPane().setBackground(new Color(33, 43, 54));
+
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         titleLabel = new JLabel("FOOD ORDERING SYSTEM");
-        titleLabel.setBounds(250, 20, 250, 30);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setBounds(250, 20, 260, 30);
+        titleLabel.setForeground(new Color(255,237,41));
         frame.add(titleLabel);
 
         nameLabel = new JLabel("Customer Name:");
         nameLabel.setBounds(50, 70, 120, 25);
+        nameLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        nameLabel.setForeground(new Color(255,237,41));
         frame.add(nameLabel);
 
         nameField = new JTextField();
-        nameField.setBounds(180, 70, 200, 25);
+        nameField.setBounds(190, 70, 200, 25);
+        nameField.setForeground(Color.BLACK);
+        nameField.setFont(new Font("Arial", Font.BOLD, 15));
+
+        nameField.setBackground(Color.lightGray);
         frame.add(nameField);
 
         phoneLabel = new JLabel("Phone Number:");
         phoneLabel.setBounds(50, 110, 120, 25);
+        phoneLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        phoneLabel.setForeground(new Color(255,237,41));
         frame.add(phoneLabel);
 
         phoneField = new JTextField();
-        phoneField.setBounds(180, 110, 200, 25);
+        phoneField.setBounds(190, 110, 200, 25);
+        phoneField.setFont(new Font("Arial", Font.BOLD, 15));
+        phoneField.setForeground(Color.black);
         frame.add(phoneField);
 
         pizzaCheckBox = new JCheckBox("Pizza @ Ksh 500");
         pizzaCheckBox.setBounds(50, 170, 150, 25);
+        pizzaCheckBox.setFont(new Font("Arial", Font.BOLD, 15));
+        pizzaCheckBox.setForeground(new Color(255,237,41));
+        pizzaCheckBox.setBackground(new Color(33, 43, 54));
         pizzaCheckBox.addItemListener(this);
         frame.add(pizzaCheckBox);
 
         pizzaStockLabel = new JLabel("Available: " + pizzaStock);
-        pizzaStockLabel.setBounds(220, 170, 100, 25);
+        pizzaStockLabel.setBounds(230, 170, 100, 25);
+        pizzaStockLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        pizzaStockLabel.setForeground(new Color(255,237,41));
         frame.add(pizzaStockLabel);
 
         pizzaComboBox = new JComboBox<>();
-        pizzaComboBox.setBounds(360, 170, 80, 25);
+        pizzaComboBox.setBounds(370, 170, 80, 25);
         pizzaComboBox.setVisible(false);
         frame.add(pizzaComboBox);
 
         burgerCheckBox = new JCheckBox("Burger @ Ksh 300");
         burgerCheckBox.setBounds(50, 220, 160, 25);
+        burgerCheckBox.setFont(new Font("Arial", Font.BOLD, 15));
+        burgerCheckBox.setForeground(new Color(255,237,41));
+        burgerCheckBox.setBackground(new Color(33, 43, 54));
         burgerCheckBox.addItemListener(this);
         frame.add(burgerCheckBox);
 
         burgerStockLabel = new JLabel("Available: " + burgerStock);
-        burgerStockLabel.setBounds(220, 220, 100, 25);
+        burgerStockLabel.setBounds(230, 220, 100, 25);
+        burgerStockLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        burgerStockLabel.setForeground(new Color(255,237,41));
         frame.add(burgerStockLabel);
 
         burgerComboBox = new JComboBox<>();
-        burgerComboBox.setBounds(360, 220, 80, 25);
+        burgerComboBox.setBounds(370, 220, 80, 25);
         burgerComboBox.setVisible(false);
         frame.add(burgerComboBox);
 
         teaCheckBox = new JCheckBox("Tea @ Ksh 50");
         teaCheckBox.setBounds(50, 270, 150, 25);
+        teaCheckBox.setFont(new Font("Arial", Font.BOLD, 15));
+        teaCheckBox.setForeground(new Color(255,237,41));
+        teaCheckBox.setBackground(new Color(33, 43, 54));
         teaCheckBox.addItemListener(this);
         frame.add(teaCheckBox);
 
         teaStockLabel = new JLabel("Available: " + teaStock);
-        teaStockLabel.setBounds(220, 270, 100, 25);
+        teaStockLabel.setBounds(230, 270, 100, 25);
+        teaStockLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        teaStockLabel.setForeground(new Color(255,237,41));
+
         frame.add(teaStockLabel);
 
         teaComboBox = new JComboBox<>();
-        teaComboBox.setBounds(360, 270, 80, 25);
+        teaComboBox.setBounds(370, 270, 80, 25);
+        teaComboBox.setBackground(Color.lightGray);
         teaComboBox.setVisible(false);
         frame.add(teaComboBox);
 
@@ -105,46 +139,67 @@ public class FoodOrderingSystem implements ActionListener, ItemListener {
         updateComboBox(teaComboBox, teaStock);
 
         totalBillLabel = new JLabel("Total Bill:");
-        totalBillLabel.setBounds(50, 330, 100, 25);
+        totalBillLabel.setBounds(50, 390, 100, 25);
+        totalBillLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        totalBillLabel.setForeground(new Color(255,237,41));
         frame.add(totalBillLabel);
 
         totalBillField = new JTextField();
-        totalBillField.setBounds(180, 330, 200, 25);
+        totalBillField.setBounds(190, 390, 200, 25);
+        totalBillField.setFont(new Font("Arial", Font.BOLD, 15));
+        totalBillField.setForeground(Color.BLACK);
+        totalBillField.setBackground(Color.lightGray);
         totalBillField.setEditable(false);
         frame.add(totalBillField);
 
         amountPaidLabel = new JLabel("Amount Paid:");
-        amountPaidLabel.setBounds(50, 370, 100, 25);
+        amountPaidLabel.setBounds(50, 430, 100, 25);
+        amountPaidLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        amountPaidLabel.setForeground(new Color(255,237,41));
         frame.add(amountPaidLabel);
 
         amountPaidField = new JTextField();
-        amountPaidField.setBounds(180, 370, 200, 25);
+        amountPaidField.setBounds(190, 430, 200, 25);
+        amountPaidField.setForeground(Color.black);
+        amountPaidField.setFont(new Font("Arial", Font.BOLD, 15));
+        amountPaidField.setBackground(Color.lightGray);
         frame.add(amountPaidField);
 
         calculateButton = new JButton("Calculate Total");
-        calculateButton.setBounds(50, 430, 140, 35);
+        calculateButton.setBounds(50, 330, 140, 35);
+        calculateButton.setFont(new Font("Arial", Font.BOLD, 15));
+        calculateButton.setBackground(Color.yellow);
         calculateButton.addActionListener(this);
         frame.add(calculateButton);
 
-        payButton = new JButton("Pay / Confirm");
-        payButton.setBounds(210, 430, 130, 35);
+        payButton = new JButton("Pay");
+        payButton.setBounds(210, 490, 100, 35);
+        payButton.setFont(new Font("Arial", Font.BOLD, 15));
+        payButton.setBackground(Color.yellow);
         payButton.addActionListener(this);
         frame.add(payButton);
 
         resetButton = new JButton("Reset");
-        resetButton.setBounds(360, 430, 100, 35);
+        resetButton.setBounds(360, 490, 100, 35);
+        resetButton.setFont(new Font("Arial", Font.BOLD, 15));
+        resetButton.setBackground(Color.yellow);
         resetButton.addActionListener(this);
         frame.add(resetButton);
 
         exitButton = new JButton("Exit");
-        exitButton.setBounds(480, 430, 100, 35);
+        exitButton.setBounds(480, 490, 100, 35);
+        exitButton.setFont(new Font("Arial", Font.BOLD, 15));
+        exitButton.setBackground(Color.yellow);
         exitButton.addActionListener(this);
         frame.add(exitButton);
 
         messageArea = new JTextArea();
         messageArea.setEditable(false);
+        messageArea.setBackground(Color.lightGray);
+
         scrollPane = new JScrollPane(messageArea);
-        scrollPane.setBounds(50, 500, 620, 150);
+        scrollPane.setBounds(50, 550, 620, 150);
+
         frame.add(scrollPane);
 
         frame.setVisible(true);
@@ -357,10 +412,7 @@ public class FoodOrderingSystem implements ActionListener, ItemListener {
             messageArea.append("Amount Paid: Ksh " + amountPaid + "\n");
             messageArea.append("Balance: Ksh " + balance + "\n");
             messageArea.append("----------------------------------------------\n");
-            messageArea.append("Remaining Stock:\n");
-            messageArea.append("Pizza = " + pizzaStock + "\n");
-            messageArea.append("Burger = " + burgerStock + "\n");
-            messageArea.append("Tea = " + teaStock + "\n");
+
             messageArea.append("==============================================\n");
 
             totalBillField.setText("");
